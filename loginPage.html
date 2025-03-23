@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Lexend Deca', sans-serif;
+        }
+        .login-container {
+            background-color: #FCE8DA;
+            padding: 80px;
+            padding-top: 150px;
+            padding-bottom: 150px; 
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 80px;
+            font-family: 'Italiana',sans-serif;
+        }
+        input {
+            width: 93%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Lexend Deca', sans-serif;
+            letter-spacing: 1.5px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            gap:20px;
+        }
+        button {
+            flex: 1;
+            padding: 12px;
+            width:300px;
+            background-color: #FF6F00;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .signup:hover, .login:hover, a:hover {
+            opacity: 0.6;
+            font-size: large;
+            
+        }
+        #forgot-password {
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            font-weight: 700;
+        }
+        label {
+            display: flex;
+        }
+        .checkbox {
+            display: flex;
+            align-items:start;
+            font-stretch: condensed;
+            height: min-content;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>PlateFull</h1>
+        <form>
+            <input type="text" placeholder="Registration number" id="regno">
+            <input type="password" placeholder="Password" id="pw">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="pass"> Show Password
+                </label>
+            </div>
+            
+            
+            <div class="button-group">
+                <a href="signupPage.html"><button class="signup">Sign Up</button></a>
+                <button class="login" onclick="checkUser()">Login</button>
+            </div>
+            <div id="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.querySelector('#pass').addEventListener('change',showpass);
+        function showpass(){
+            let choice=document.querySelector('input[placeholder="Password"]');
+            if(this.checked){
+                choice.type='text';
+            }
+            else{
+                choice.type='password';
+            }
+        }
+        const users={t23BRS1125:'password',};
+
+        function checkUser(){
+            event.preventDefault();
+            let u="t"+document.getElementById('regno').value;
+            let v=document.getElementById('pw');
+            if(users[u] && v.value===users[u]){
+                //redirect to login
+                alert("Login successful!");
+                // Redirect to dashboard or another page
+                window.location.href = "homePage.html";
+            }
+            else{
+                //alert wrong password
+                alert("wrong password or user does not exist");
+            }
+        }
+    </script>
+</body>
+</html>

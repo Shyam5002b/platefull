@@ -1,0 +1,16 @@
+#sri{
+    background-image: url('../images/sri.jpg');
+    background-size: cover;
+    opacity: 80%;
+}
+#georgia{
+    background-image:url('../images/georgia.jpg');
+    background-size: cover;
+}
+#hotCool{
+    background-image:url('../images/hot&cool.jpg');
+    background-size: cover;
+}
+.box{
+    height: 500px;
+}

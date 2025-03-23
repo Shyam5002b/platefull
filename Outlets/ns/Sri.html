@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlateFull</title>
+    <link rel="stylesheet" href="../../generalBackground.css">
+    <link rel="stylesheet" href="sri.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <script src="../../common.js"></script>
+    <style>
+        h2{
+            font-size:60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>PlateFull</h2>
+        <div>
+            <a href="../../homePage.html" id="navbutton">Home</a>
+            <a href="../../outlets.html" id="navbutton">Outlets</a>
+            <a href="#" id="navbutton">Menu</a>
+            <a href="#" id="navbutton">Support</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="loginpage.html"><button class="login-button">Login</button></a>
+            <a href="signuppage.html"><button class="signup-button">Sign Up</button></a>
+        </div>
+    </div> 
+    <div class="search-bar">
+        <span>&#128269;</span>
+        <input type="text" placeholder="What is on your mind today?">
+        <button>AI Powered Search</button>
+    </div>
+    <div class="container"> 
+        <h1>Sri</h1> 
+    </div>
+    <div class="Menuitems" id="chat">
+        <h2>Chat</h2>
+        <div class="items">
+            <div>Samosa</div>
+            <div>
+                <p>$<span class="cost">15</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div>Dahi Puri</div>
+            <div>
+                <p>$<span class="cost">55</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div>Bhel Puri</div>
+            <div>
+                <p>$<span class="cost">60</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div>Masala Puri</div>
+            <div>
+                <p>$<span class="cost">75</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div>Samosa Chenna</div>
+            <div>
+                <p>$<span class="cost">60</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="Menuitems" id="pasta">
+        <h2>Pasta</h2>
+        <div class="items">
+            <div>White Pasta(full)</div>
+            <div>
+                <p>$<span class="cost">140</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div> Red Pasta(full)</div>
+            <div>
+                <p>$<span class="cost">140</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div> Pink Pasta(full)</div>
+            <div>
+                <p>$<span class="cost">140</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div>White Pasta(half)</div>
+            <div>
+                <p>$<span class="cost">70</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div> Red Pasta(half)</div>
+            <div>
+                <p>$<span class="cost">70</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+        <div class="items">
+            <div> Pink Pasta(half)</div>
+            <div>
+                <p>$<span class="cost">70</span></p>
+                <button onclick="increaseCount(this)">+</button>
+                <p class="count">0</p>
+                <button onclick="decreaseCount(this)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>©Copyright by Sravan and Shyam Inc. 2025</footer>
+    <script>
+        function increaseCount(button) {
+        let countElement = button.nextElementSibling; // Get <p> element
+        let cost = button.previousElementSibling; // Get <p> element
+        let count = parseInt(countElement.textContent);
+        countElement.textContent = count + 1;
+    }
+
+    function decreaseCount(button) {
+        let countElement = button.previousElementSibling; // Get <p> element
+        let count = parseInt(countElement.textContent);
+        if (count > 0) {
+            countElement.textContent = count - 1;
+        }
+    }
+    </script>
+</body>
+</html>

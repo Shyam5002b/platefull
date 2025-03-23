@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: orange;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Lexend Deca', sans-serif;
+        }
+        .signup-container {
+            padding: 80px;
+            padding-top: 150px;
+            padding-bottom: 150px;
+            border-radius: 12px;
+            background-color: antiquewhite;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 80px;
+            font-family:'Italiana',sans-serif;
+        }
+        input {
+            width: 93%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: blue;
+            color: aliceblue;
+
+        }
+        button:hover {
+            opacity: 0.7;
+        }
+        #login-link {
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #E9A17F;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>PlateFull</h1>
+        <form>
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="VIT Email">
+            <input type="text" placeholder="Registration Number">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Confirm Password">
+            <div class="button-group">
+                <a href="loginPage.html"><button type="submit">Sign Up</button></a>
+            </div>
+            <div id="login-link">
+                <a href="loginPage.html">Already have an account? Login</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
