@@ -99,41 +99,13 @@
             
             <div class="button-group">
                 <a href="signupPage.html"><button class="signup">Sign Up</button></a>
-                <button class="login" onclick="checkUser()">Login</button>
+                <button class="login" type="submit">Login</button>
             </div>
             <div id="forgot-password">
                 <a href="#">Forgot Password?</a>
             </div>
         </form>
     </div>
-    <script>
-        document.querySelector('#pass').addEventListener('change',showpass);
-        function showpass(){
-            let choice=document.querySelector('input[placeholder="Password"]');
-            if(this.checked){
-                choice.type='text';
-            }
-            else{
-                choice.type='password';
-            }
-        }
-        const users={t23BRS1125:'password',};
-
-        function checkUser(){
-            event.preventDefault();
-            let u="t"+document.getElementById('regno').value;
-            let v=document.getElementById('pw');
-            if(users[u] && v.value===users[u]){
-                //redirect to login
-                alert("Login successful!");
-                // Redirect to dashboard or another page
-                window.location.href = "homePage.html";
-            }
-            else{
-                //alert wrong password
-                alert("wrong password or user does not exist");
-            }
-        }
-    </script>
+    <script src="./login.js"></script>
 </body>
 </html>
