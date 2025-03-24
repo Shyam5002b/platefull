@@ -45,42 +45,48 @@ if (signupForm) {
 /**********************************************
  * LOGIN HANDLER (loginPage.html)
  **********************************************/
-const loginForm = document.querySelector('.login-container form');
-if (loginForm) {
-  loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-    // Grab form values
-    const regNo = loginForm.querySelector('input[placeholder="Registration number"]').value;
-    const password = loginForm.querySelector('input[placeholder="Password"]').value;
+  const regNo = document.getElementById('regno').value;
+  const password = document.getElementById('pw').value;
 
-    try {
-      // Make POST request to /api/auth/login
-      const response = await fetch('http://localhost:5000/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ regNo, password }),
-      });
+  try {
+    const response = await fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ regNo, password })
+    });
 
-      if (response.ok) {
-        const data = await response.json();
-        alert('Login successful!');
-
-        // Store token in localStorage for future use
-        localStorage.setItem('token', data.token);
-
-        // Redirect to your homepage or dashboard
-        window.location.href = 'homePage.html';
-      } else {
-        const errorMsg = await response.text();
-        alert(errorMsg || 'Login failed');
-      }
-    } catch (err) {
-      console.error('Error during login:', err);
-      alert('An error occurred while logging in.');
+    if (!response.ok) {
+      const errorMsg = await response.text();
+      alert(errorMsg || 'Login failed');
+      return;
     }
-  });
-}
+
+    // Here is where we get the token & user info from backend
+    const data = await response.json();
+    // Example response shape: { token, user: { fullName, email, regNo } }
+
+    // 1) Store the token if you need it later
+    localStorage.setItem('token', data.token);
+
+    // 2) Store the user info. The code in homePage.html expects `username`.
+    //    So let's store fullName as `username`.
+    localStorage.setItem('user', JSON.stringify({ 
+      username: data.user.fullName, 
+      regNo: data.user.regNo,
+      email: data.user.email
+    }));
+
+    // 3) Redirect to home
+    window.location.href = 'homePage.html';
+  } catch (error) {
+    console.error('Login error:', error);
+    alert('Something went wrong.');
+  }
+});
+
 
 /**********************************************
  * OPTIONAL: Show/Hide Password on login page

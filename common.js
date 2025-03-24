@@ -22,3 +22,21 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.style.opacity = "1";
     }, 10);
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    const authSection = document.getElementById('auth-section');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user) {
+        authSection.innerHTML = `
+            <span style="color: white; font-weight: bold;">Welcome, ${user.username}</span>
+            <button onclick="logout()" class="signup-button">Logout</button>
+        `;
+    }
+});
+
+function logout() {
+    localStorage.removeItem('user');
+    window.location.href = 'index.html'; // Redirect to landing or home
+}
+

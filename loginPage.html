@@ -87,7 +87,7 @@
 <body>
     <div class="login-container">
         <h1>PlateFull</h1>
-        <form>
+        <form id="loginForm">
             <input type="text" placeholder="Registration number" id="regno">
             <input type="password" placeholder="Password" id="pw">
             <div class="checkbox">
@@ -95,10 +95,10 @@
                     <input type="checkbox" id="pass"> Show Password
                 </label>
             </div>
-            
-            
             <div class="button-group">
-                <a href="signupPage.html"><button class="signup">Sign Up</button></a>
+                <!-- Link to signup page -->
+                <a href="signupPage.html"><button>Sign Up</button></a>
+                <!-- Actual login button triggers form submission -->
                 <button class="login" type="submit">Login</button>
             </div>
             <div id="forgot-password">

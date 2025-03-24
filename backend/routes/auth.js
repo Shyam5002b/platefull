@@ -49,7 +49,15 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || 'fallback_secret');
 
     // Send the token to the frontend
-    res.json({ token });
+    res.json({
+      token,
+      user: {
+        fullName: user.fullName,
+        email: user.email,
+        regNo: user.regNo
+      }
+    });
+
   } catch (error) {
     console.error(error);
     res.status(500).send('Server error');
